@@ -22,6 +22,12 @@
   when: "galaxy_systemd_mode == 'mule'"
   listen: "restart galaxy"
 
+- name: galaxy gravity state directory permission
+  directory:
+    path: "{{ galaxy_gravity_state_dir }}"
+    mode: "0777"
+    state: "directory"
+
 - name: galaxy gravity restart
   command: "{{ galaxy_venv_dir }}/bin/galaxyctl graceful"
   environment:
