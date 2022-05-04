@@ -23,7 +23,7 @@
   listen: "restart galaxy"
 
 - name: galaxy gravity state directory permission
-  directory:
+  file:
     path: "{{ galaxy_gravity_state_dir }}"
     mode: "0777"
     state: "directory"
